@@ -14,7 +14,7 @@ AM_CPPFLAGS =						\
 	-I$(top_builddir)
 
 GUSB_LIBS =						\
-	$(top_builddir)/gusb/libgusb.la
+	$(top_builddir)/gusb/libgusb-2.0.la
 
 noinst_PROGRAMS =					\
 	gusb

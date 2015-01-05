@@ -11,9 +11,9 @@ AM_CPPFLAGS = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\"
 
 lib_LTLIBRARIES =						\
-	libgusb.la
+	libgusb-2.0.la
 
-libgusb_includedir = $(includedir)/gusb-1
+libgusb_includedir = $(includedir)/gusb-2
 libgusb_include_HEADERS =					\
 	gusb-private.h						\
 	gusb.h
@@ -29,29 +29,29 @@ libgusbbase_include_HEADERS =					\
 	gusb-source.h						\
 	gusb-util.h
 
-libgusb_la_SOURCES =						\
+libgusb_2_0_la_SOURCES =					\
 	gusb-context.c						\
 	gusb-device.c						\
 	gusb-device-list.c					\
 	gusb-source.c						\
 	gusb-util.c
 
-libgusb_la_LIBADD =						\
+libgusb_2_0_la_LIBADD =						\
 	$(GLIB_LIBS)						\
 	$(USB_LIBS)						\
 	$(GUDEV_LIBS)
 
-libgusb_la_LDFLAGS =						\
+libgusb_2_0_la_LDFLAGS =					\
 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)	\
 	-export-dynamic						\
 	-no-undefined						\
 	-export-symbols-regex '^g_usb_.*'
 
-libgusb_la_CFLAGS =						\
+libgusb_2_0_la_CFLAGS =						\
 	$(WARNINGFLAGS_C)
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gusb.pc
+pkgconfig_DATA = gusb-2.0.pc
 
 if GUSB_BUILD_TESTS
 check_PROGRAMS =						\
@@ -73,18 +73,18 @@ endif
 if HAVE_INTROSPECTION
 include $(INTROSPECTION_MAKEFILE)
 
-INTROSPECTION_GIRS = GUsb-1.0.gir
+INTROSPECTION_GIRS = GUsb-2.0.gir
 INTROSPECTION_SCANNER_ENV = CC="$(CC)"
 
-GUsb-1.0.gir: libgusb.la
+GUsb-2.0.gir: libgusb-2.0.la
 
-GUsb_1_0_gir_PACKAGES = glib-2.0 gobject-2.0 libusb-1.0
-GUsb_1_0_gir_EXPORT_PACKAGES = gusb
-GUsb_1_0_gir_INCLUDES = GLib-2.0 GObject-2.0 Gio-2.0
-GUsb_1_0_gir_LIBS = libgusb.la
-GUsb_1_0_gir_CFLAGS = -I$(top_srcdir) -I$(top_builddir) -DGUSB_COMPILATION
-GUsb_1_0_gir_FILES = $(libgusb_la_SOURCES) $(libgusbbase_include_HEADERS)
-GUsb_1_0_gir_SCANNERFLAGS = --c-include "gusb.h"
+GUsb_2_0_gir_PACKAGES = glib-2.0 gobject-2.0 libusb-1.0
+GUsb_2_0_gir_EXPORT_PACKAGES = gusb
+GUsb_2_0_gir_INCLUDES = GLib-2.0 GObject-2.0 Gio-2.0
+GUsb_2_0_gir_LIBS = libgusb-2.0.la
+GUsb_2_0_gir_CFLAGS = -I$(top_srcdir) -I$(top_builddir) -DGUSB_COMPILATION
+GUsb_2_0_gir_FILES = $(libgusb_la_SOURCES) $(libgusbbase_include_HEADERS)
+GUsb_2_0_gir_SCANNERFLAGS = --c-include "gusb.h"
 
 girdir = $(datadir)/gir-1.0
 gir_DATA = $(INTROSPECTION_GIRS)
@@ -96,13 +96,13 @@ endif
 if ENABLE_VAPIGEN
 include $(VAPIGEN_MAKEFILE)
 
-gusb.vapi: GUsb-1.0.gir
+gusb-2.0.vapi: GUsb-2.0.gir
 
-VAPIGEN_VAPIS = gusb.vapi
+VAPIGEN_VAPIS = gusb-2.0.vapi
 
-gusb_vapi_DEPS = gio-2.0
-gusb_vapi_METADATADIRS = $(srcdir)
-gusb_vapi_FILES = GUsb-1.0.gir
+gusb_2_0_vapi_DEPS = gio-2.0
+gusb_2_0_vapi_METADATADIRS = $(srcdir)
+gusb_2_0_vapi_FILES = GUsb-2.0.gir
 
 vapidir = $(datadir)/vala/vapi
 vapi_DATA = $(VAPIGEN_VAPIS)
@@ -110,7 +110,7 @@ endif
 
 EXTRA_DIST =							\
 	gusb-version.h.in					\
-	gusb.pc.in
+	gusb-2.0.pc.in
 
 CLEANFILES = $(BUILT_SOURCES)
 

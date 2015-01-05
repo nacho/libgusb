@@ -2,8 +2,8 @@
 AC_PREREQ(2.63)
 
 m4_define([gusb_major_version], [0])
-m4_define([gusb_minor_version], [2])
-m4_define([gusb_micro_version], [4])
+m4_define([gusb_minor_version], [3])
+m4_define([gusb_micro_version], [0])
 m4_define([gusb_version],
           [gusb_major_version.gusb_minor_version.gusb_micro_version])
 
@@ -40,8 +40,8 @@ AC_SUBST(G_USB_MICRO_VERSION)
 # CURRENT	If the API or ABI interface has changed (reset REVISION to 0)
 # REVISION	If the API and ABI remains the same, but bugs are fixed.
 # AGE		Don't use.
-LT_CURRENT=2
-LT_REVISION=7
+LT_CURRENT=3
+LT_REVISION=0
 LT_AGE=0
 AC_SUBST(LT_CURRENT)
 AC_SUBST(LT_REVISION)
@@ -117,7 +117,7 @@ docs/Makefile
 docs/api/Makefile
 docs/api/version.xml
 gusb/gusb-version.h
-gusb/gusb.pc
+gusb/gusb-2.0.pc
 gusb/Makefile
 tools/Makefile
 ])
