@@ -543,24 +543,6 @@ _g_usb_context_get_context (GUsbContext *context)
 }
 
 /**
- * g_usb_context_get_source:
- * @context: a #GUsbContext
- * @main_ctx: a #GMainContext, or %NULL
- *
- * This function does nothing.
- *
- * Return value: (transfer none): the #GUsbSource.
- *
- * Since: 0.1.0
- **/
-GUsbSource *
-g_usb_context_get_source (GUsbContext  *context,
-                          GMainContext *main_ctx)
-{
-	return NULL;
-}
-
-/**
  * g_usb_context_set_debug:
  * @context: a #GUsbContext
  * @flags: a GLogLevelFlags such as %G_LOG_LEVEL_ERROR | %G_LOG_LEVEL_INFO, or 0

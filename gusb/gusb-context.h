@@ -68,10 +68,6 @@ GQuark		 g_usb_context_error_quark		(void);
 
 GUsbContext	*g_usb_context_new			(GError		**error);
 
-G_DEPRECATED
-GUsbSource	*g_usb_context_get_source		(GUsbContext	*context,
-							 GMainContext	*main_ctx);
-
 void		 g_usb_context_enumerate		(GUsbContext	*context);
 
 void		 g_usb_context_set_debug		(GUsbContext	*context,

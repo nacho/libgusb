@@ -25,15 +25,11 @@ libgusbbase_include_HEADERS =					\
 	gusb-context-private.h					\
 	gusb-device.h						\
 	gusb-device-private.h					\
-	gusb-device-list.h					\
-	gusb-source.h						\
 	gusb-util.h
 
 libgusb_2_0_la_SOURCES =					\
 	gusb-context.c						\
 	gusb-device.c						\
-	gusb-device-list.c					\
-	gusb-source.c						\
 	gusb-util.c
 
 libgusb_2_0_la_LIBADD =						\
